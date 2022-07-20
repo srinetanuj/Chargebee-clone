@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+      }
+      #container {
+        width: 30%;
+        margin: auto;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        margin-top: 80px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      h1 {
+        text-align: center;
+        color: teal;
+        margin: 20px 0px;
+      }
+      label {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      input {
+        font-size: 20px;
+        margin: 10px 0px;
+      }
+      #login {
+        width: 60%;
+        margin-left: 20%;
+        background-color: cornflowerblue;
+        border: 0;
+        padding: 7px 20px;
+        margin-bottom: 40px;
+        border-radius: 10px;
+      }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Login</h1>
+        <div id="form">
+          <form action="">
+            <label for="">Email</label><br />
+            <input type="email" id="email" placeholder="Enter email" /><br />
+            <label for="">Password</label><br />
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter Password"
+            /><br />
+            <input type="submit" value="Login" id="login" />
+          </form>
+        </div>
+      </div>
+</body>
+</html>
+<script>
+    let form=document.querySelector("form");
+
+    let signupArr = JSON.parse(localStorage.getItem("signup")) || [];
+
+    form.addEventListener("submit", function(event){
+        event.preventDefault();
+        if(signupArr.length===0){
+            alert("No user till now");
+            return;
+        }
+        let obj={
+            email:document.querySelector("#email").value,
+            pass:document.querySelector("#password").value
+        }
+
+        let isLogin=false;
+        signupArr.forEach(function(ele){
+            if(ele.email===obj.email && ele.pass===obj.pass){
+                isLogin=true;
+                localStorage.setItem("login",JSON.stringify(ele));
+                alert("Login Successfully")
+                
+            }
+        })
+        if(isLogin===false){
+            alert("User Doesn't Exist");
+        }
+    })
+</script>
