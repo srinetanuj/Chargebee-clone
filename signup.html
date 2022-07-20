@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #container {
+        width: 30%;
+        margin: auto;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        margin-top: 80px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      h1 {
+        text-align: center;
+        color: teal;
+        margin: 20px 0px;
+      }
+      label {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      input {
+        font-size: 20px;
+        margin: 10px 0px;
+      }
+      #sign {
+        width: 60%;
+        margin-left: 20%;
+        background-color: cornflowerblue;
+        border: 0;
+        padding: 7px 20px;
+        margin-bottom: 40px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Sign Up</h1>
+      <div id="form">
+        <form action="">
+            <label for="">Name</label><br>
+          <input type="text" id="name" placeholder="Enter name"><br>
+          <label for="">Email</label><br />
+          <input type="email" id="email" placeholder="Business email" /><br />
+          <label for="">Mobile Number</label><br />
+          <input
+            type="number"
+            id="mobile"
+            placeholder="Enter Mobile Number"
+          /><br />
+          <label for="">Company Website</label><br />
+          <input type="text" placeholder="Your website" id="website"><br>
+          <label for="">Password</label><br />
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+          /><br />
+          <input type="submit" value="Sign Up" id="sign" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let form = document.querySelector("form");
+
+  let signupArr = JSON.parse(localStorage.getItem("signup")) || [];
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    obj = {
+        name:document.querySelector("#name").value,
+      email: document.querySelector("#email").value,
+      mobile: document.querySelector("#mobile").value,
+      website:document.querySelector("#website").value,
+      pass: document.querySelector("#password").value,
+    };
+
+    if (obj.email == "" || obj.mobile == "" || obj.pass == "") {
+      alert("Field Empty");
+      return;
+    } else {
+      signupArr.push(obj);
+      localStorage.setItem("signup", JSON.stringify(signupArr));
+    }
+    window.location.href="login.html"
+  });
+</script>
