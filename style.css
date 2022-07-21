@@ -24,6 +24,7 @@
 .left>h1{
     font-family: 'Courier New', Courier, monospace;
     font-style: italic;
+    margin-right: 60px;
 }
 #right{
     display: flex;
@@ -35,10 +36,11 @@
 #link{
    
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 40px;
+    grid-template-columns: repeat(10,1fr);
+    gap: 10px;
 
 }
+
 #bottom{
     width: 90%;
     margin: auto;
@@ -73,14 +75,14 @@
 /* .btn{
     /* position: relative; */
     /* top:10px; */
-   display: flex;
+   /* display: flex;
    justify-content: space-between; 
    align-items: center;
-}
+} */
 .btn>button{
     margin: 0px 40px;
     margin-top: -40%;
     padding: 10px;
     /* background-color: darkgray; */
     /* border: 0; */
-} */
+} 
