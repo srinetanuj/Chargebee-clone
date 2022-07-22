@@ -4,13 +4,14 @@
     box-sizing: border-box;
 }
 .navbar{
-    width: 95%;
+    width: 100%;
     margin: auto;
- 
+    /* margin-top: 50px; */
+   
   display: flex;
   justify-content: space-between;
-  background-color:rgb(118, 118, 108);
-  border-radius: 50px;
+  background-color:rgb(240, 240, 210);
+  
   padding: 5px;
 }
 #link>a,#right>a{
@@ -86,3 +87,16 @@
     /* background-color: darkgray; */
     /* border: 0; */
 } 
+.bottomSection{
+    width: 90%;
+    margin: 100px 10%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.bottomSection>div>h3{
+    color: blue;
+
+}
+.bottomSection>div>p{
+    margin: 10px 0;
+}
